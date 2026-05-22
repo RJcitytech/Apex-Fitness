@@ -54,7 +54,7 @@
         }
     }
 
-    // Existing functions (setupThemeToggle, setupWodGenerator, etc.) remain unchanged
+    
     function setupThemeToggle() {
         var btn = document.getElementById("themeToggle");
         if (btn) {
@@ -75,7 +75,7 @@ function setupWodGenerator() {
             var randomRep = reps[Math.floor(Math.random() * reps.length)];
             var randomMove = movements[Math.floor(Math.random() * movements.length)];
             
-            // Output format: X sets of Y [Movement]
+            
             document.getElementById("wodOutput").textContent = 
                 randomSet + " sets of " + randomRep + " " + randomMove;
         });
@@ -94,7 +94,7 @@ function setupWodGenerator() {
                     return;
                 }
 
-                // Updated Height validation (range: 120cm to 300cm)
+                // Height validation 
                 if (heightCm < 120 || heightCm > 300) {
                     alert("Please enter a height between 120 cm and 300 cm.");
                     return;
