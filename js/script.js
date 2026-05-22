@@ -64,29 +64,39 @@
         }
     }
 
-    function setupWodGenerator() {
+function setupWodGenerator() {
         var btn = document.getElementById("wodBtn");
         var movements = ["Burpees", "Pullups", "Box Jumps", "Kettlebell Swings", "Pushups", "Air Squats"];
-        var reps = ["10", "20", "30", "50"];
-        var types = ["AMRAP in 10 mins:", "5 Rounds for time:"];
+        var sets = ["3", "4", "5"];
+        var reps = ["10", "15", "20", "25"];
 
         if (btn) btn.addEventListener("click", function() {
-            var randomType = types[Math.floor(Math.random() * types.length)];
+            var randomSet = sets[Math.floor(Math.random() * sets.length)];
             var randomRep = reps[Math.floor(Math.random() * reps.length)];
             var randomMove = movements[Math.floor(Math.random() * movements.length)];
-            document.getElementById("wodOutput").textContent = randomType + " " + randomRep + " " + randomMove;
+            
+            // Output format: X sets of Y [Movement]
+            document.getElementById("wodOutput").textContent = 
+                randomSet + " sets of " + randomRep + " " + randomMove;
         });
     }
 
-    function setupBmiCalculator() {
+	function setupBmiCalculator() {
         var btn = document.getElementById("bmiBtn");
         if (btn) {
             btn.addEventListener("click", function() {
-                var heightCm = parseFloat(document.getElementById("heightInput").value);
-                var weightLbs = parseFloat(document.getElementById("weightInput").value);
+        var heightCm = parseFloat(document.getElementById("heightInput").value);
+        var weightLbs = parseFloat(document.getElementById("weightInput").value);
                 
+                // Weight validation
                 if (weightLbs < 55 || weightLbs > 1000) {
                     alert("Please enter a weight between 55 lbs and 1000 lbs.");
+                    return;
+                }
+
+                // Updated Height validation (range: 120cm to 300cm)
+                if (heightCm < 120 || heightCm > 300) {
+                    alert("Please enter a height between 120 cm and 300 cm.");
                     return;
                 }
 
