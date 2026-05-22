@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Fitness | Join Us</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">APEX <span>FITNESS</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="registration.html" class="active">Membership</a>
+            <a href="creativity.html">Features</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="full-width-card">
+            <h2>Membership Intelligence Portal</h2>
+            <p style="margin-bottom: 20px;">Review tracking rules and common onboarding guidelines before deployment.</p>
+            
+            <div class="accordion-item">
+                <input type="checkbox" id="faq1" class="accordion-input">
+                <label for="faq1" class="accordion-label">Can I alter membership paths mid-cycle?</label>
+                <div class="accordion-content">
+                    <p>Yes, optimization requests can be compiled through the support interface at any processing interval without exit penalties.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq2" class="accordion-input">
+                <label for="faq2" class="accordion-label">Are coach assessments structural elements of registration?</label>
+                <div class="accordion-content">
+                    <p>Elite and VIP tier protocols integrate mandatory physiological profiling maps to maximize tracking performance data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-container">
+            <h2>Membership Registration</h2>
+            <p>Fill out the form below to initiate your elite membership tier.</p>
+            
+            <div id="errorBox" class="error-box"></div>
+            <div id="successBox" class="success-box"></div>
+
+            <form id="regForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="johndoe@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="123-456-7890">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" placeholder="Min age 16">
+                </div>
+                <div class="form-group">
+                    <label for="memberType">Membership Type</label>
+                    <select id="memberType">
+                        <option value="">-- Select Option --</option>
+                        <option value="Basic Access">Basic Access ($29/mo)</option>
+                        <option value="Elite Tier">Elite Tier ($59/mo)</option>
+                        <option value="VIP Coaching">VIP Coaching ($149/mo)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timePreference">Preferred Workout Time</label>
+                    <select id="timePreference">
+                        <option value="">-- Select Option --</option>
+                        <option value="Morning">Morning (5:00 AM - 11:00 AM)</option>
+                        <option value="Mid-day">Mid-day (11:00 AM - 4:00 PM)</option>
+                        <option value="Evening">Evening (4:00 PM - 10:00 PM)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experience Level</label>
+                    <select id="experience">
+                        <option value="">-- Select Option --</option>
+                        <option value="Beginner">Beginner (Under 1 year)</option>
+                        <option value="Intermediate">Intermediate (1-3 years)</option>
+                        <option value="Advanced">Advanced (3+ years)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goals">Fitness Goals</label>
+                    <textarea id="goals" rows="4" placeholder="Tell us what you want to achieve..."></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Apex Fitness. All rights reserved.</p>
+        <p>Follow us on <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

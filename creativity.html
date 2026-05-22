@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Fitness | Features</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">APEX <span>FITNESS</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="registration.html">Membership</a>
+            <a href="creativity.html" class="active">Features</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="interactive-grid">
+            <div class="card interactive-card">
+                <div>
+                    <h2>Daily WOD Generator</h2>
+                    <p>Get a randomized workout challenge.</p>
+                </div>
+                <button id="wodBtn" class="btn" style="margin-top: 15px;">Generate Workout</button>
+                <p id="wodOutput" style="margin-top: 15px; font-weight: bold; color: var(--accent);"></p>
+            </div>
+
+            <div class="card interactive-card">
+                <div>
+                    <h2>BMI Calculator</h2>
+                    <p>Calculate your Body Mass Index (55 - 1000 lbs).</p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <input type="number" id="heightInput" placeholder="Height (cm)" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+                    <input type="number" id="weightInput" placeholder="Weight (lbs)" style="width: 100%; padding: 8px;">
+                    <button id="bmiBtn" class="btn" style="margin-top: 10px; width: 100%;">Calculate BMI</button>
+                    <p id="bmiOutput" style="margin-top: 15px; font-weight: bold; color: var(--accent);"></p>
+                </div>
+            </div>
+
+            <div class="card interactive-card">
+                <div>
+                    <h2>Equipment Showcase</h2>
+                    <p>View our state-of-the-art training facilities.</p>
+                </div>
+                <div class="slideshow-container">
+                    <img class="slide-img" src="images/squat-rack.jpg" alt="Squat Rack">
+                    <img class="slide-img" src="images/kettlebell.jpg" alt="Kettlebells">
+                    <img class="slide-img" src="images/barbell.jpg" alt="Olympic Barbells">
+                    <div class="caption-overlay">
+                        <span class="caption-text">Heavy Duty Squat & Power Racks</span>
+                        <span class="caption-text">Competition Steel Kettlebells</span>
+                        <span class="caption-text">Olympic Barbells & Weight Plates</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Apex Fitness. All rights reserved.</p>
+        <p>Follow us on <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,692 @@
+/* --- Root Variables for Color Theme Consistency --- */
+:root {
+    --bg-primary: #12181f;
+    --bg-secondary: #1a232d;
+    --text-main: #ffffff;
+    --text-muted: #a0aec0;
+    --accent: #ccff00; /* Neon Volt Gym Accent */
+    --accent-hover: #b3de00;
+    --border-color: #2d3748;
+    --card-bg: #1e293b;
+    --error-color: #ff3333;
+    --success-color: #00e676;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--bg-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 2px solid var(--border-color);
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+header .logo span {
+    color: var(--accent);
+}
+
+/* --- Interactive Navigation Link Layout --- */
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+nav a:hover::after, nav a.active::after {
+    transform: scaleX(1);
+}
+
+.container {
+    flex: 1;
+    max-width: 1200px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* --- Interactive Core Elements & Smooth Reveal Transitions --- */
+.card, .staff-card, .hero, .full-width-card {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.main-hero {
+    background: linear-gradient(rgba(18, 24, 31, 0.85), rgba(18, 24, 31, 0.85)), 
+                url('../images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media(max-width: 768px) {
+    .info-section, .grid, .interactive-grid, .three-column-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* --- Dynamic Hover Cards --- */
+.card, .full-width-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+.full-width-card {
+    margin-bottom: 40px;
+}
+
+.card:hover, .full-width-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(204, 255, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card h2, .full-width-card h2 {
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+}
+
+.card p, .card ul, .full-width-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+.card li {
+    margin-bottom: 8px;
+}
+
+.staff-section h2, .additional-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.additional-section {
+    margin-top: 60px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.three-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.staff-card {
+    background-color: var(--bg-secondary);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(204, 255, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--accent);
+}
+
+.staff-card h3 {
+    margin-bottom: 5px;
+}
+
+.staff-card .role {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.staff-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- Interactive Input Form Layout Rules --- */
+.form-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.form-container h2 {
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.2);
+    background-color: rgba(26, 35, 45, 0.5);
+}
+
+/* --- Tactile Button Press Physics --- */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* --- Notification Boxes --- */
+.error-box {
+    background-color: rgba(255, 51, 51, 0.1);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.error-box ul {
+    list-style-position: inside;
+}
+
+.success-box {
+    background-color: rgba(0, 230, 118, 0.1);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* --- Creativity Page Elements --- */
+.interactive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.interactive-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
+.interactive-card p {
+    margin-bottom: 20px;
+}
+
+/* Calendar Styling Layout Rules */
+.calendar-box {
+    margin-top: 15px;
+    background-color: var(--bg-primary);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--accent);
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+.day-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding-bottom: 5px;
+}
+.calendar-day {
+    padding: 8px 0;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.calendar-day.has-event {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 700;
+    background-color: rgba(204, 255, 0, 0.15);
+}
+
+/* =======================================================
+   PURE CSS AUTOMATED SLIDESHOW ENGINE
+   ======================================================= */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    margin-top: 15px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+}
+
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: cssSlideshow 9s infinite ease-in-out;
+}
+
+.slide-img:nth-child(1) { animation-delay: 0s; }
+.slide-img:nth-child(2) { animation-delay: 3s; }
+.slide-img:nth-child(3) { animation-delay: 6s; }
+
+@keyframes cssSlideshow {
+    0% { opacity: 0; }
+    6% { opacity: 1; }
+    33.33% { opacity: 1; }
+    39.33% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    z-index: 10;
+}
+
+.caption-text {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    opacity: 0;
+    animation: cssSlideshow 9s infinite ease-in-out;
+}
+
+.caption-text:nth-child(1) { animation-delay: 0s; }
+.caption-text:nth-child(2) { animation-delay: 3s; }
+.caption-text:nth-child(3) { animation-delay: 6s; }
+
+/* =======================================================
+   PURE CSS ACCORDION LOGIC
+   ======================================================= */
+.accordion-item {
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+.accordion-input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: var(--bg-secondary);
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+.accordion-label:hover {
+    background-color: var(--border-color);
+}
+.accordion-label::after {
+    content: '\276F';
+    transform: rotate(90deg);
+    transition: transform 0.25s;
+    color: var(--accent);
+}
+.accordion-content {
+    max-height: 0;
+    padding: 0 16px;
+    background-color: rgba(30, 41, 59, 0.4);
+    color: var(--text-muted);
+    overflow: hidden;
+    line-height: 1.6;
+    transition: max-height 0.25s ease-out, padding 0.25s ease-out;
+}
+.accordion-input:checked ~ .accordion-content {
+    max-height: 150px;
+    padding: 16px;
+}
+.accordion-input:checked ~ .accordion-label::after {
+    transform: rotate(-90deg);
+}
+
+/* =======================================================
+   PURE CSS ENGINE: INTERACTIVE CALCULATORS ENGINE
+   ======================================================= */
+.css-calc-card select {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.rep-radio-group, .height-radio-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* Hide the native radio circle controls */
+.rep-radio-group input[type="radio"], 
+.height-radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Stylize label targets into custom selector button modules */
+.btn-radio {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btn-radio:hover {
+    border-color: var(--accent);
+}
+
+/* Target checked inputs to shift label visuals instantly */
+input[type="radio"]:checked + .btn-radio {
+    background-color: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+}
+
+/* Core Structural Output Panel States */
+.css-output-container {
+    margin-top: 20px;
+}
+
+.max-output, .bmi-output {
+    display: none;
+    padding: 12px;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+    border-left: 4px solid var(--accent);
+    font-weight: 700;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Matrix Sibling Selectors mapping state changes to structural items */
+#rep5:checked ~ .css-output-container .target-rep5 { display: block; }
+#rep10:checked ~ .css-output-container .target-rep10 { display: block; }
+
+#ht-short:checked ~ .css-output-container .target-short { display: block; }
+#ht-tall:checked ~ .css-output-container .target-tall { display: block; }
+
+/* =======================================================
+   CLOCKED OPERATIONAL TRACKER
+   ======================================================= */
+.tracker-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+.tracker-row:last-child {
+    border-bottom: none;
+}
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: var(--bg-primary);
+}
+.status-badge.active {
+    background-color: rgba(204, 255, 0, 0.2);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+/* =======================================================
+   TEXT COMPONENT CAROUSEL RUNNER
+   ======================================================= */
+.testimonial-runner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 80px;
+    margin-top: 20px;
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+.text-track {
+    display: flex;
+    position: absolute;
+    width: 200%;
+    animation: scrollText 16s linear infinite;
+}
+.testimonial-node {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.testimonial-node span {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+.testimonial-node strong {
+    color: var(--accent);
+    margin-left: 5px;
+}
+@keyframes scrollText {
+    0% { left: 0%; }
+    100% { left: -100%; }
+}
+
+/* --- Clean Uniform Footer Layout Rules --- */
+footer {
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
